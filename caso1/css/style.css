@@ -1,0 +1,77 @@
+/* fuentes de google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Share+Tech+Mono&display=swap');
+
+/* barra de navagacion */
+.navbar {
+    padding: 1rem;
+    background-color: #FF6000;
+    font-size: 18px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.navbar-brand img {
+    max-height: 50px;
+    max-width: 50px;
+}
+
+.navbar a {
+    color: #FFE6C7;
+}
+
+.buscar i {
+    color: white;
+    font-size: 20px;
+}
+
+.iniciar-sesion button {
+    max-height: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    background-color: transparent;
+    margin: 5px;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 50px;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.iniciar-sesion button:hover {
+    background-color: #FFE6C7;
+    color: black;
+}
+
+
+.iniciar-sesion button i {
+    color: white;
+    transition: all 0.2s ease-in-out;
+  }
+
+.iniciar-sesion button:hover i {
+    color: black;
+  }
+
+.registrarse button {
+    max-height: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: transparent;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 50px;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.registrarse button:hover {
+    background-color: #FFE6C7;
+    color: black;
+}
+
+
+/* .navbar-collapse { 
+    align-items: center;
+    justify-content: end;
+} */
