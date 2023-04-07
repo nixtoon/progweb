@@ -18,10 +18,10 @@
     color: #FFE6C7;
 }
 
-.buscar i {
-    color: white;
-    font-size: 20px;
-}
+.navbar-collapse {
+    align-items: center;
+    justify-content: end;
+} 
 
 .iniciar-sesion button {
     max-height: 50px;
@@ -36,12 +36,10 @@
     transition: all 0.2s ease-in-out;
 }
 
-
 .iniciar-sesion button:hover {
     background-color: #FFE6C7;
     color: black;
 }
-
 
 .iniciar-sesion button i {
     color: white;
@@ -56,7 +54,7 @@
     max-height: 50px;
     color: white;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 13px;
     background-color: transparent;
     padding: 10px;
     border: 2px solid white;
@@ -64,14 +62,9 @@
     transition: all 0.2s ease-in-out;
 }
 
-
 .registrarse button:hover {
     background-color: #FFE6C7;
     color: black;
 }
 
 
-/* .navbar-collapse { 
-    align-items: center;
-    justify-content: end;
-} */
