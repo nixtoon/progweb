@@ -1,6 +1,14 @@
 /* fuentes de google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Share+Tech+Mono&display=swap');
 
+/* estilos generales */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* barra de navagacion */
 .navbar {
     padding: 1rem;
@@ -68,3 +76,89 @@
 }
 
 
+/* buscador */
+.contenedor{
+    padding: 20px;
+}
+
+.buscador {
+    position: absolute;
+    max-height: 50px;
+    padding: 5px;
+}
+
+.buscador input {
+    width: 0px;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 18px;
+    color: #000;
+    outline: none;
+    border: 1px solid silver;
+    border-radius: 30px;
+    transition: all 0.7s ease;
+}
+
+.buscador .btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #454545;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.buscador .btn i {
+    color: white;
+    font-size: 25px;
+    padding: 5px 0px 10px 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.buscador:hover input {
+    width: 240px;
+}
+
+.buscador input:focus {
+    width: 240px;
+}
+
+/* hero */
+/* seccion clara */
+.seccion-clara {
+    color: black;
+    background-color: #FFE6C7;
+    min-height: 500px;
+    padding: 40px;
+}
+
+.seccion-titulo-hero {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 50px;
+}
+
+/* nosotros */
+/* seccion oscura */
+.seccion-oscura {
+    color: white;
+    background-color: #454545;
+    min-height: 500px;
+    padding: 10px;
+  }
+
+.seccion-titulo {
+    font-family: 'Share Tech Mono', monospace;
+}
+
+
+/* adaptable responsivo */
+@media screen and (max-width: 400px){
+    .seccion-titulo-hero {
+        font-size: 30px;
+    }
+};
+    
