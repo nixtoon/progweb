@@ -21,9 +21,10 @@
     <!-- titulo de la pagina -->
     <title>Ground Zero | Inicio</title>
 </head>
+
 <body>
     <!-- barra de navegacion -->
-    <nav class="navbar navbar-expand-md">
+    <nav class="navbar navbar-expand-md sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="./img/logo/logo.png" alt="logo de la cooperativa">
@@ -38,10 +39,10 @@
                         <a class="nav-link active" aria-current="page" href="#">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">CATEGORÍAS</a>
+                        <a class="nav-link" href="#categorias">CATEGORÍAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ARTISTAS</a>
+                        <a class="nav-link" href="#artistas">ARTISTAS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">CONTACTO</a>
@@ -121,59 +122,184 @@
         <!-- carrusel -->
         <div id="productos-carrusel" class="carousel carousel-dark slide">
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="container">
-                  <img class="producto-imagen" src="./img/productos/pinturas/producto1.jpg" alt="producto1">
-                  <p class="producto-texto">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Cras tellus libero, accumsan vel ipsum sed, lobortis finibus ex. 
-                    Praesent eget massa posuere, sodales eros eu, euismod ante. 
-                  </p>
-                  <div class="producto-info">
-                    <p class="artista">Pablo Picasso</p>
-                    <p class="categoria">Pinturas al óleo</p>
-                  </div>
+                <div class="carousel-item active">
+                    <div class="container">
+                        <a href="#">
+                            <img class="producto-imagen" src="./img/productos/pinturas/producto1.jpg" alt="producto1">
+                        </a>
+                        <p class="producto-texto">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Cras tellus libero, accumsan vel ipsum sed, lobortis finibus ex.
+                            Praesent eget massa posuere, sodales eros eu, euismod ante.
+                        </p>
+                        <div class="producto-info">
+                            <p class="artista">Pablo Picasso</p>
+                            <p class="categoria">Pinturas al óleo</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="carousel-item">
-                <div class="container">
-                  <img class="producto-imagen" src="./img/productos/pinturas/producto2.jpg" alt="producto2">
-                  <p class="producto-texto">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Cras tellus libero, accumsan vel ipsum sed, lobortis finibus ex. 
-                    Praesent eget massa posuere, sodales eros eu, euismod ante. 
-                  </p>
-                  <div class="producto-info">
-                    <p class="artista">Miguel Angelo</p>
-                    <p class="categoria">Pinturas al óleo</p>
-                  </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <a href="#">
+                            <img class="producto-imagen" src="./img/productos/pinturas/producto2.jpg" alt="producto2">
+                        </a>
+                        <p class="producto-texto">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Cras tellus libero, accumsan vel ipsum sed, lobortis finibus ex.
+                            Praesent eget massa posuere, sodales eros eu, euismod ante.
+                        </p>
+                        <div class="producto-info">
+                            <p class="artista">Miguel Angelo</p>
+                            <p class="categoria">Pinturas al óleo</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="carousel-item">
-                <div class="container">
-                  <img class="producto-imagen" src="./img/productos/pinturas/producto3.jpg" alt="producto3">
-                  <p class="producto-texto">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Cras tellus libero, accumsan vel ipsum sed, lobortis finibus ex. 
-                    Praesent eget massa posuere, sodales eros eu, euismod ante. 
-                  </p>
-                  <div class="producto-info">
-                    <p class="artista">Van Gogh</p>
-                    <p class="categoria">Pinturas al óleo</p>
-                  </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <a href="#">
+                            <img class="producto-imagen" src="./img/productos/pinturas/producto3.jpg" alt="producto3">
+                        </a>
+                        <p class="producto-texto">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Cras tellus libero, accumsan vel ipsum sed, lobortis finibus ex.
+                            Praesent eget massa posuere, sodales eros eu, euismod ante.
+                        </p>
+                        <div class="producto-info">
+                            <p class="artista">Van Gogh</p>
+                            <p class="categoria">Pinturas al óleo</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#productos-carrusel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Anterior</span>
+            <button class="carousel-control-prev" type="button" data-bs-target="#productos-carrusel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#productos-carrusel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Siguiente</span>
+            <button class="carousel-control-next" type="button" data-bs-target="#productos-carrusel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
             </button>
-          </div>
+        </div>
+        <a href="">
+            <button type="button" class="btn ver-mas">
+                Ver Más
+                <i class="bi bi-arrow-right-circle"></i>
+            </button>
+        </a>
     </section>
+
+    <!-- categorias -->
+    <section id="categorias" class="categorias seccion-clara-2">
+        <h2 class="seccion-titulo">Categorías</h2>
+        <div class="container text-center">
+            <div class="row">
+                <div class="columna col-12 col-md-3">
+                    <a href="#">
+                        <img class="img-fluid" src="./img/categorias/pintura.jpg" alt="categoria pintura">
+                    </a>
+                    <h2 class="cat-titulo">Pintura</h2>
+                </div>
+                <div class="columna col-12 col-md-3">
+                    <a href="#">
+                        <img class="img-fluid" src="./img/categorias/sculpture.jpg" alt="categoria escultura">
+                    </a>
+                    <h2 class="cat-titulo">Escultura</h2>
+                </div>
+                <div class="columna col-12 col-md-3">
+                    <a href="#">
+                        <img class="img-fluid" src="./img/categorias/orfebreria.jpg" alt="categoria orfebreria">
+                    </a>
+                    <h2 class="cat-titulo">Orfebrería</h2>
+                </div>
+                <div class="columna col-12 col-md-3">
+                    <a href="#">
+                        <img class="img-fluid" src="./img/categorias/tejidos.jpg" alt="categoria tejidos">
+                    </a>
+                    <h2 class="cat-titulo">Tejidos</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- artistas -->
+    <section id="artistas" class="categorias seccion-clara">
+        <h2 class="seccion-titulo">Artistas</h2>
+        <div class="container text-center">
+            <div class="row">
+                <div class="columna col-12 col-md-3">
+                    <a href="#">
+                        <img class="img-fluid" src="./img/artistas/artista1.jpg" alt="artista 1">
+                    </a>
+                    <h2 class="cat-titulo">Marí</h2>
+                </div>
+                <div class="columna col-12 col-md-3">
+                    <a href="#">
+                        <img class="img-fluid" src="./img/artistas/artista2.jpg" alt="artista 2">
+                    </a>
+                    <h2 class="cat-titulo">Jose</h2>
+                </div>
+                <div class="columna col-12 col-md-3">
+                    <a href="#">
+                        <img class="img-fluid" src="./img/artistas/artista3.jpg" alt="artista 3">
+                    </a>
+                    <h2 class="cat-titulo">Constanza</h2>
+                </div>
+                <div class="columna col-12 col-md-3">
+                    <a href="#">
+                        <img class="img-fluid" src="./img/artistas/artista4.jpg" alt="artista 4">
+                    </a>
+                    <h2 class="cat-titulo">Génesis</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- contacto -->
+    <section class="contacto seccion-oscura-2">
+        <div class="container">
+            <div class="container rectangulo">
+                <div class="row">
+                    <div class="col-12 col-md-4 seccion-titulo-contacto">
+                        ¡Contáctanos!
+                    </div>
+                    <div class="col-12 col-md-4 descripcion">
+                        Contáctanos para ver más de nuestro arte
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <a href="mailto: groundzero@micorreo.com">
+                            <button type="button">
+                                Contacto
+                                <i class="bi bi-envelope-check-fill"></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="seccion-oscura d-flex flex-column align-items-center justify-content-center">
+        <img class="footer-logo" src="./img/logo/logo.png" alt="logo de la cooperativa">
+        <p class="footer-texto">Cooperativa Artística Ground Zero
+        <div class="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
+            <a href="https://twitter.com/?lang=es" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-instagram"></i>
+            </a>
+            <a href="mailto: groundzero@micorreo.com" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-linkedin"></i>
+            </a>
+        </div>
+        <div class="derechos-autor">Creado por Nicolás Oses, Sebastián Arriagada (2023) &#169;</div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
