@@ -369,6 +369,7 @@ footer {
 .btn-contacto:hover {
     background: white;
     color: #FF6000;
+    border: 1px solid #FF6000;
 }
 
 .contacto-img img {
@@ -379,19 +380,20 @@ footer {
 .seccion-clara-3 {
     color: black;
     background: linear-gradient(#FFA559, #FFE6C7);
-    min-height: 800px;
-    padding: 40px;
+    min-height: 600px;
+    padding: 20px;
 }
 
 .card {
-    display: flex;
+    border: 1px solid #FF6000;
+    box-shadow: 0 2px 4px 2px #454545;
 }
 
 .btn-registrarse button {
     background: #FF6000;
     color: white;
-    transition: all 0.5s ease;
     margin: 20px;
+    transition: all 0.2s ease;
 }
 
 .btn-registrarse button:hover {
@@ -412,6 +414,50 @@ footer {
 .navegacion a {
     text-decoration: none;
 }
+
+/* agregar obra */
+.agregar-obra {
+    background: #FF512F;
+    background: -webkit-linear-gradient(to right, #F09819, #FF512F);
+    background: linear-gradient(to right, #F09819, #FF512F);
+}
+
+.seccion-obra-titulo {
+    color: white;
+    font-size: 40px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.btn-agregar {
+    background: #454545;
+    color: white;
+    border: 1px solid white;  
+    margin-bottom: 50px;  
+}
+
+.btn-agregar:hover {
+    background: white;
+    color: #FF6000;
+    border: 1px solid #FF6000;
+} 
+
+.agregar-obra label {
+    color: white;
+    font-size: 1.5rem;
+}
+
+
+/* Administrador */
+.seccion-obra-titulo-2 {
+    color: #FF6000;
+    font-size: 40px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.revision td button {
+    margin: 2px ;
+}
+
 
 /* adaptable responsivo */
 @media screen and (max-width: 400px) {
