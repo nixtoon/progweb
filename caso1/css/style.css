@@ -360,6 +360,58 @@ footer {
     padding: 20px;
 }
 
+/* formulario de contacto */
+.btn-contacto {
+    background: #FF6000;
+    color: white;
+}
+
+.btn-contacto:hover {
+    background: white;
+    color: #FF6000;
+}
+
+.contacto-img img {
+    margin-top: 20px;
+}
+
+/* formulario de registrarse */
+.seccion-clara-3 {
+    color: black;
+    background: linear-gradient(#FFA559, #FFE6C7);
+    min-height: 800px;
+    padding: 40px;
+}
+
+.card {
+    display: flex;
+}
+
+.btn-registrarse button {
+    background: #FF6000;
+    color: white;
+    transition: all 0.5s ease;
+    margin: 20px;
+}
+
+.btn-registrarse button:hover {
+    background: white;
+    color: #FF6000;
+    border: 1px solid #FF6000;
+}
+
+/* navegacion */
+.navegacion {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navegacion a {
+    text-decoration: none;
+}
 
 /* adaptable responsivo */
 @media screen and (max-width: 400px) {
