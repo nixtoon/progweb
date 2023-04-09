@@ -493,3 +493,39 @@ footer {
         margin: 10px;
     }
 }
+
+.product-inner-box .icons{
+   right: 15px;
+   display: flex;
+   flex-direction: column;
+   gap: 4px;
+   top: -3%;
+   transition: all 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ;
+   opacity: 0;
+}
+.product-inner-box .icons a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.product-inner-box .onsale .badge {
+    background: #000;
+    font-size: 12px;
+    padding: 5px 14px;
+    top: 0px;
+}
+.product-inner-box .on-sale .badge:before{
+    border-width: 10px 0px 0px 10px;
+    border-color: transparent transparent transparent #000;
+    content: "";
+    position: absolute;
+    right: -8px;
+    width: 0;
+    bottom: 0;
+    border-style: solid;
+}
