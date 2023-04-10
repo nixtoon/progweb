@@ -494,13 +494,15 @@ footer {
     }
 }
 
+/* OBRAS */
+
 .product-inner-box .icons{
    right: 15px;
    display: flex;
    flex-direction: column;
    gap: 4px;
    top: -3%;
-   transition: all 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ;
+   transition: all 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
    opacity: 0;
 }
 .product-inner-box .icons a {
@@ -512,16 +514,18 @@ footer {
     border-radius: 50%;
     background: #fff;
 }
-
-.product-inner-box .onsale .badge {
-    background: #000;
-    font-size: 12px;
+.product-inner-box .featured .badge {
+    background: #fff;
+    font-size:  12px;
     padding: 5px 14px;
     top: 0px;
+    position: absolute;
+    color: #000;
 }
-.product-inner-box .on-sale .badge:before{
+
+.product-inner-box .featured .badge:before {
     border-width: 10px 0px 0px 10px;
-    border-color: transparent transparent transparent #000;
+    border-color: transparent transparent transparent #fff;
     content: "";
     position: absolute;
     right: -8px;
@@ -529,3 +533,63 @@ footer {
     bottom: 0;
     border-style: solid;
 }
+
+.product-inner-box .featured .badge:after {
+    border-width: 10px 8px 0 10px;
+    border-color: #fff transparent transparent;
+    content: "";
+    position: absolute;
+    right: -8px;
+    width: 0;
+    top: 0;
+    border-style: solid;
+}
+
+.product-inner-box img {
+    box-shadow: 0 33px 61px -29px rgb(0 0 0 / 26%); /*sombra no funciona*/
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.product-box.is-hover .icons{
+    transform: rotateY(3%);
+    top: 3%;
+    opacity: 1;
+}
+
+.cart-btn{
+    position:absolute;
+    right: 10px;
+    bottom: 10px;
+    text-align:right;
+    width: 100%;
+    transition: all 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+.product-name{
+    font-size: 10px;
+    text-align: left;
+    font-family: 'Quicksand', sans-serif;
+}
+.obras-title{
+    font-family: 'Share Tech Mono', monospace;
+}    
+.obras-sub-title{
+    font-family: 'Share Tech Mono', monospace;
+    font-style: italic;
+}
+
+.product-box.is-hover .cart-btn{
+    opacity: 1;
+}
+
+.obras-zoom {
+
+  transition: transform .5s;
+  margin: 0 auto;
+}
+
+.obras-zoom:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
