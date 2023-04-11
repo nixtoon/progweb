@@ -19,7 +19,7 @@
   <!-- favicon -->
   <link rel="icon" type="image/x-icon" href="../img/logo/logo.png">
   <!-- titulo de la pagina -->
-  <title>Ground Zero | Registrarse</title>
+  <title>Ground Zero | Iniciar Sesión</title>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
                 <a href="../index.html">Inicio</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Registrarse
+                Iniciar Sesión
               </li>
             </ol>
           </nav>
@@ -43,21 +43,17 @@
     </div>
   </section>
 
-  <!-- formulario de registro -->
-  <section class="registrarse seccion-clara-3 d-flex">
+  <!-- formulario iniciar sesion -->
+  <div class="seccion-clara d-flex">
     <div class="container">
       <div class="row justify-content-center align-items-center">
         <div class="col-12 col-md-6">
           <div class="card">
             <div class="container">
               <div class="card-title mt-5">
-                <h1 class="seccion-titulo">Regístrate</h1>
+                <h1 class="seccion-titulo">Iniciar Sesión</h1>
               </div>
               <form class="row g-3 mt-3">
-                <div class="col-12">
-                  <label for="nombreInput" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="nombreInput" placeholder="Ingrese su Nombre">
-                </div>
                 <div class="col-12">
                   <label for="emailInput" class="form-label">Correo</label>
                   <input type="email" class="form-control" id="emailInput" placeholder="Ingrese su Correo">
@@ -68,20 +64,22 @@
                 </div>
               </form>       
               <div class="btn-registrarse d-flex justify-content-center align-items-center">
-                <button class="btn" type="submit">
-                  Registrarse
-                  <i class="bi bi-check-circle"></i>
-                </button>
+                <a href="./usuario.html">
+                  <button class="btn" type="submit">
+                    Iniciar
+                    <i class="bi bi-check-circle"></i>
+                  </button>
+                </a>
               </div>
             </div>
           </div>
         </div>
         <div class="col-12 col-md-6">
-          <img class="img-fluid mt-3" src="../img/pinturas/pintura1.jpg" alt="pintura1">
+          <img class="img-fluid mt-5" src="../img/pinturas/pintura1.jpg" alt="pintura1">
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- footer -->
   <footer class="seccion-oscura d-flex flex-column align-items-center justify-content-center">
@@ -110,7 +108,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
     integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
     crossorigin="anonymous"></script>
-
 </body>
 
 </html>
