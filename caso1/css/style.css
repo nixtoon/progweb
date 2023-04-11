@@ -503,7 +503,6 @@ footer {
    gap: 4px;
    top: -3%;
    transition: all 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-   opacity: 0;
 }
 .product-inner-box .icons a {
     width: 40px;
@@ -511,9 +510,12 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    background: #fff;
+    color: #454545;
+    border-radius: 100px;
+    transition: all 0.2s ease-in-out;
+    
 }
+
 .product-inner-box .featured .badge {
     background: #fff;
     font-size:  12px;
@@ -546,7 +548,7 @@ footer {
 }
 
 .product-inner-box img {
-    box-shadow: 0 33px 61px -29px rgb(0 0 0 / 26%); /*sombra no funciona*/
+    box-shadow: 0 33px 61px -29px rgb(0 0 0 / 26%); 
     height: 250px;
     width: 100%;
     object-fit: cover;
@@ -558,22 +560,53 @@ footer {
     opacity: 1;
 }
 
-.cart-btn{
+.cart-btn{ 
     position:absolute;
     right: 10px;
     bottom: 10px;
     text-align:right;
-    width: 100%;
-    transition: all 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     color: #454545;
 }
+.cart-btn button{
+    background-color: #fff;
+
+}
+.cart-btn button:hover{
+    background-color: #ead4b8;
+
+}
+.fa-heart{
+    color: #ead4b8;
+}
+.fa-heart:hover{
+    color: #454545;
+
+}
 .product-name{
-    font-size: 10px;
     text-align: left;
     font-family: 'Quicksand', sans-serif;
     color: #454545;
+    margin-top: 10px;
+}
+
+.product-name h2{
+    font-size: 20px;
+
+}
+
+.artist-name{
+    text-align: left;
+    font-family: 'Quicksand', sans-serif;
+    color: #454545;
+    margin-top: 5px; 
+}
+
+.artist-name h3{
+    font-size: 15px;
 }
 .obras-title{
+    font-size: 5px;
     font-family: 'Share Tech Mono', monospace;
     color: #454545;
 }    
@@ -581,7 +614,7 @@ footer {
     font-family: 'Share Tech Mono', monospace;
     font-style: italic;
     color: #454545;
-
+    margin-top: 5px;
 }
 
 .product-box.is-hover .cart-btn{
@@ -589,12 +622,37 @@ footer {
 }
 
 .obras-zoom {
-
-  transition: transform .5s;
+  transition: transform .6s;
   margin: 0 auto;
 }
 
 .obras-zoom:hover {
-  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transform: scale(1.03); 
 }
 
+.small-img-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-img-col {
+    flex-basis: 24%;
+    cursor: pointer;
+}
+.sproduct select{
+    display: block;
+    padding: 5px 10px;
+
+}
+
+.sproduct input{
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.sproduct input:focus{
+    outline: none;
+}
