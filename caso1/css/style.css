@@ -154,6 +154,34 @@ section {
     font-family: 'Share Tech Mono', monospace;
 }
 
+.map{
+    height: 300px;
+    width: 100%;
+}
+
+.boton-mapa button {
+    background: #FF6000;
+    color: white;
+    margin: 20px;
+    transition: all 0.2s ease;
+}
+
+.boton-mapa button:hover {
+    background-color: white;
+    color: black;
+}
+
+.boton-mapa button i {
+    color: white;
+    font-size: 1.3rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.boton-mapa button:hover i {
+    color: black;
+}
+
+
 /* productos destacados */
 .productos {
     padding: 40px 40px 80px 40px;
@@ -656,3 +684,15 @@ footer {
 .sproduct input:focus{
     outline: none;
 }
+
+label .error{
+    color: darkred;
+}
+
+input .error {
+    border: 1px solid darkred;
+}
+
+.help-block.error {
+    margin-bottom: 5px;
+  }
