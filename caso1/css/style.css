@@ -685,14 +685,14 @@ footer {
     outline: none;
 }
 
-label .error{
+#email-error {
     color: darkred;
 }
 
-input .error {
+.form-control.error {
     border: 1px solid darkred;
 }
 
-.help-block.error {
-    margin-bottom: 5px;
-  }
+#clave-error {
+    color: darkred;
+}

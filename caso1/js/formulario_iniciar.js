@@ -1,30 +1,36 @@
-$.validator.addMethod("terminaPor", function(value, element, parametro){
-    if(value.endsWith(parametro)){
-        return true;
-    }
-    return false;
-}, "Debe terminar por {0}" )
+$("#main").submit(
+    function(){
+        var $iniciar = $("#main")
+        $.validator.addMethod("espacios", function(value, element){
+            return value == ' ' || value.trim().length != 0
+        }, "Espacios no son permitidos");
+        if($iniciar.length){
+            $iniciar.validate({
+                rules:{
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password:{
+                        required: true,
+                        espacios: true,
+                        minlength: 5,
+                        maxlength: 15
+                    }
+                },
+                messages:{
+                    email: {
+                        required: 'Correo es obligatorio',
+                    },
+                    password: {
+                        required: 'Contraseña es obligatorio',
+                        minlength: 'Debe tener un mínimo de 5 caracteres',
+                        maxlength: 'Debe tener un máximo de 15 caracteres',
+                    }
+                }
 
-
-$('#main').validate({
-    rules: {
-        correo: {
-            required: true,
-            email: true,
-            terminaPor: "duoc.cl"
-        },
-        pass: {
-            required: true,
-            minlength: 4,
-            maxlength: 10
+            })
         }
+        event.preventDefault();
     }
-})
-
-$('#iniciar').click(function(){
-    if($('#main').valid() == false) {
-        return;
-    }
-    let correo = $('#email').val();
-    let pass = $('#password').val();
-})
+);
