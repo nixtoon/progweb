@@ -712,8 +712,19 @@ footer {
     margin-bottom: 5px;
   }
 
-#panel {
-    padding: 50px;
+/* DESPLIEGUE */
+#debit_panel, #credit_panel, #debit, #credit {
+    padding: 5px;
+    text-align: center;
+}
+
+#debit_panel {
+    padding: 150px;
+    display: none;
+}
+
+#credit_panel {
+    padding: 150px;
     display: none;
 }
 

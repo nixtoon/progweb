@@ -287,8 +287,7 @@
 
           <div class="my-3">
             <div class="form-check">
-              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" onclick="desplegar_credito"
-                checked required>
+              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" required>
               <label class="form-check-label" for="credit">Tarjeta de credito</label>
             </div>
             <div class="form-check">
@@ -296,7 +295,7 @@
               <label class="form-check-label" for="debit">Tarjeta de debito</label>
             </div>
             <div class="form-check">
-              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required disabled>
               <label class="form-check-label" for="paypal">Mercado Pago</label>
             </div>
           </div>
@@ -334,7 +333,44 @@
                 </div>
               </div>
             </div>
-          <a href="javascript:void(0);" onclick="ocultar_credito">Cerrar</a>
+          </div>
+          <hr class="my-4">
+
+          <!-- TARJETA DEBITO-->
+          <div id="debit_panel">
+            <div class="row gy-3">
+              <div class="col-md-5">
+                <label for="bancos" class="form-label">Banco</label>
+                <select class="form-select" id="bancos" required>
+                  <option value="">Seleccione un banco/option>
+                  <option value=""> - </option>
+                  <option value="Banco Santander"></option>
+                  <option value="Banco Estado"></option>
+                  <option value="Banco de Chile / Citi-Edwards"></option>
+                  <option value="Banco de credito e inversiones"></option>
+                  <option value="Scotiabank"></option>
+                  <option value="Banco falabella"></option>
+                </select>
+                <div class="invalid-feedback">
+                  Porfavor seleccione una region valida.
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="cc-number" class="form-label">Numero de tarjeta de debito</label>
+                <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                <div class="invalid-feedback">
+                  Se requiere un numero de tarjeta.
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="cc-expiracion" class="form-label">Fecha vencimiento</label>
+                <input type="text" class="form-control" id="cc-expiracion" placeholder="" required>
+                <div class="invalid-feedback">
+                  Porfavor ingrese una fecha de expiracion.
+                </div>
+              </div>
+            </div>
+            <a href="javascript:void(0);" onclick="ocultar_credito">Cerrar</a>
           </div>
           <hr class="my-4">
 
@@ -377,6 +413,7 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <script src="/docs/5.3/assets/js/color-modes.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </body>
 
 </html>
