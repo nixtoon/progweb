@@ -724,6 +724,8 @@ footer {
 #panel {
     padding: 50px;
     display: none;
+}
+
 #clave-error {
     color: darkred;
 }
