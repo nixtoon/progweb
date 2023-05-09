@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- metadatos -->
+  <meta charset="UTF-8">
+  <meta name="author" content="Sebastian Arriagada, Nicolas Oses">
+  <meta name="description" content="Pagina web oficial de la Cooperativa Ground Zero">
+  <meta name="keywords" content="Ground-Zero, arte, pintura, escultura, orfebreria, tejidos">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--fontawesome-->
+  <script src="https://kit.fontawesome.com/50588777ca.js" crossorigin="anonymous"></script>
+
+  <!-- bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+
+  <!-- bootstrap 5.3.0 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+  <!--css-->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="../img/logo/logo.png">
+
+  <!-- titulo -->
+  <title>Ground Zero | Checkout</title>
+</head>
+
+<body>
+  <!-- barra de navegacion -->
+  <nav class="navbar navbar-expand-md sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../img/logo/logo.png" alt="logo de la cooperativa"> Ground-Zero
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav text-center">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="../index.html">INICIO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="../index.html#categorias">CATEGORÍAS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html#artistas">ARTISTAS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./templates/contacto.html">CONTACTO</a>
+          </li>
+        </ul>
+        <div class="d-flex flex-row justify-content-center align-items-center">
+          <div class="iniciar-sesion mr-5">
+            <a href="#">
+              <button type="button">
+                Iniciar
+                <i class="bi bi-box-arrow-in-right"></i>
+              </button>
+            </a>
+          </div>
+          <div class="registrarse">
+            <a href="./templates/registrarse.html">
+              <button type="button">
+                Registrarse
+                <i class="bi bi-check-circle"></i>
+              </button>
+            </a>
+          </div>
+          <div class="carro mr-5">
+            <a href="./checkout.html">
+              <button type="button">
+                Carro
+                <i class="bi bi-bag"></i>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+      aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+      <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+        <use href="#circle-half"></use>
+      </svg>
+      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+          aria-pressed="false">
+          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+            <use href="#sun-fill"></use>
+          </svg>
+          Light
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+          aria-pressed="false">
+          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+            <use href="#moon-stars-fill"></use>
+          </svg>
+          Dark
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
+          aria-pressed="true">
+          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+            <use href="#circle-half"></use>
+          </svg>
+          Auto
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="container mt-5">
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Tu Carro</span>
+          <span class="badge bg-primary rounded-pill">2</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Producto</h6>
+              <small class="text-body-secondary">Pintura de acrilico</small>
+            </div>
+            <span class="text-body-secondary">$12.990</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Segundo producto</h6>
+              <small class="text-body-secondary">Escultura</small>
+            </div>
+            <span class="text-body-secondary">$8.990</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
+            <div class="text-success">
+              <h6 class="my-0">CODIGO PROMOCIONAL</h6>
+              <small>CODIGO-EJ</small>
+            </div>
+            <span class="text-success">−$5.990</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total</span>
+            <strong>$15.990</strong>
+          </li>
+        </ul>
+
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code">
+            <button type="submit" class="btn btn-secondary">Redeem</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Dirección de envio</h4>
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Ingrese un nombre valido.
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="apellido" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Ingrese un apellido valido.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label">Mail</label>
+              <input type="email" class="form-control" id="email" placeholder="abc@example.com">
+              <div class="invalid-feedback">
+                Porfavor ingresa un mail valido para las actualizaciones de estado de envio.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="direccion" class="form-label">Direccion</label>
+              <input type="text" class="form-control" id="address" placeholder="Moneda 1234" required>
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="region" class="form-label">Region</label>
+              <select class="form-select" id="country" required>
+                <option value="">...</option>
+                <option>Region Metropolitana</option>
+              </select>
+              <div class="invalid-feedback">
+                Porfavor seleccione una region valida.
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="comuna" class="form-label">Comuna</label>
+              <select class="form-select" id="state" required>
+                <option value="">...</option>
+                <option>Providencia</option>
+              </select>
+              <div class="invalid-feedback">
+                Porfavor seleccione una comuna.
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="cod_postal" class="form-label">Codigo postal</label>
+              <input type="text" class="form-control" id="zip" placeholder="" required>
+              <div class="invalid-feedback">
+                Zip code.
+              </div>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="boletin">
+            <label class="form-check-label" for="boletin">Suscribirme al boletin de noticias</label>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="guardar_info">
+            <label class="form-check-label" for="guradar_info">Guardar esta informacion para la proxima vez.</label>
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Tipo de pago</h4>
+
+          <div class="my-3">
+            <div class="form-check">
+              <input id="flip" name="paymentMethod" type="radio" class="form-check-input" checked required>
+              <label class="form-check-label" for="credit">Trajeta de credito</label>
+            </div>
+            <div class="form-check">
+              <input id="flip" name="paymentMethod" type="radio" class="form-check-input" required>
+              <label class="form-check-label" for="debit">Tarjeta de debito</label>
+            </div>
+            <div class="form-check">
+              <input id="flip" name="paymentMethod" type="radio" class="form-check-input" required>
+              <label class="form-check-label" for="paypal">Mercado Pago</label>
+            </div>
+          </div>
+          <form action="" id="panel">
+            <div class="row gy-3">
+              <div class="col-md-6">
+                <label for="cc-name" class="form-label">Nombre en tarjeta</label>
+                <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                <small class="text-body-secondary">Nombre completo como muestra en tarjeta</small>
+                <div class="invalid-feedback">
+                  Porfavor ingrese un nombre valido.
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="cc-number" class="form-label">Numero de tarjeta de credito</label>
+                <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                <div class="invalid-feedback">
+                  Se requiere un numero de tarjeta.
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="cc-expiracion" class="form-label">Fecha expiracion</label>
+                <input type="text" class="form-control" id="cc-expiracion" placeholder="" required>
+                <div class="invalid-feedback">
+                  Porfavor ingrese una fecha de expiracion.
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="cc-cvv" class="form-label">CVV</label>
+                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                <div class="invalid-feedback">
+                  Ingresar CVV valido.
+                </div>
+              </div>
+            </div>
+          </form>
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Continuar</button>
+        </form>
+      </div>
+    </div>
+    </main>
+  </div>
+  <script src="despliegue.js"></script>
+
+
+</body>
+
+</html>
