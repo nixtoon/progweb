@@ -702,11 +702,11 @@ footer {
     outline: none;
 }
 
-label .error{
+#email-error {
     color: darkred;
 }
 
-input .error {
+.form-control.error {
     border: 1px solid darkred;
 }
 
@@ -724,4 +724,6 @@ input .error {
 #panel {
     padding: 50px;
     display: none;
+#clave-error {
+    color: darkred;
 }

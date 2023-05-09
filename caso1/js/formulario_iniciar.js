@@ -1,30 +1,48 @@
-$.validator.addMethod("terminaPor", function(value, element, parametro){
-    if(value.endsWith(parametro)){
-        return true;
-    }
-    return false;
-}, "Debe terminar por {0}" )
+// la funcion se ejecutará cuando se precione el botón de iniciar sesión 
+// de tipo submit
+$("#main").submit(
+    function () {
+        // capturamos el formulario de registro por medio del id
+        var $iniciar = $("#main")
 
+        //metodo creado para evitar los espacios en los inputs
+        $.validator.addMethod("espacios", function (value, element) {
+            return value == ' ' || value.trim().length != 0
+        }, "Espacios no son permitidos");
 
-$('#main').validate({
-    rules: {
-        correo: {
-            required: true,
-            email: true,
-            terminaPor: "duoc.cl"
-        },
-        pass: {
-            required: true,
-            minlength: 4,
-            maxlength: 10
+        // validamos el formulario de registro campo por campo
+        if ($iniciar.length) {
+            $iniciar.validate({
+                // pasamos los parametros de validacion
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                        espacios: true,
+                        minlength: 5,
+                        maxlength: 15
+                    }
+                },
+                // escribimos los mensajes para que aparezcan cuando los campos
+                // sean incorrectos
+                messages: {
+                    email: {
+                        required: 'Correo es obligatorio',
+                    },
+                    password: {
+                        required: 'Contraseña es obligatorio',
+                        minlength: 'Debe tener un mínimo de 5 caracteres',
+                        maxlength: 'Debe tener un máximo de 15 caracteres',
+                    }
+                }
+
+            })
         }
+        // evitamos que el formulario se envíe por decfecto al apretar el boton
+        // de iniciar
+        event.preventDefault();
     }
-})
-
-$('#iniciar').click(function(){
-    if($('#main').valid() == false) {
-        return;
-    }
-    let correo = $('#email').val();
-    let pass = $('#password').val();
-})
+);
