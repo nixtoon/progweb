@@ -1,11 +1,7 @@
-$(document).ready(function(){
-    $("#flip").click(function(){
-        $("#panel").slideDown("slow");
-    });
-});
+function desplegar_credito() {
+    document.getElementById('credit_panel').style.display = 'block';
+}
+function ocultar_credito() {
+    document.getElementById('credit_panel').style.display = 'none';
+}
 
-$(document).ready(function(){
-    $("#flip2").click(function(){
-        $("#panel").slideUp("slow");
-    });
-});
