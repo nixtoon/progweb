@@ -1,87 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <!-- metadatos -->
-    <meta charset="UTF-8">
-    <meta name="author" content="Sebastian Arriagada, Nicolas Oses">
-    <meta name="description" content="Pagina web oficial de la Cooperativa Ground Zero">
-    <meta name="keywords" content="Ground-Zero, arte, pintura, escultura, orfebreria, tejidos">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- bootstrap 5.3.0 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <!-- bootstrap icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <!-- css -->
-    <link rel="stylesheet" href="./css/style.css">
-    <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="./img/logo/logo.png">
-    <!-- javascript -->
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeo0p7f-l-NB0xY_nq3b1yT92j0BoBme8&callback=initMap">
-    </script>
-    <script src="./js/api.js"></script>
-    <!-- titulo de la pagina -->
-    <title>Ground Zero | Inicio</title>
-</head>
-
-<body>
-    <!-- barra de navegacion -->
-    <nav class="navbar navbar-expand-md sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="./index.html">
-                <img src="./img/logo/logo.png" alt="logo de la cooperativa"> Ground-Zero
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav text-center">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./index.html">INICIO</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#categorias">CATEGORÍAS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#artistas">ARTISTAS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./templates/contacto.html">CONTACTO</a>
-                    </li>
-                </ul>
-                <div class="d-flex flex-row justify-content-center align-items-center">
-                    <div class="iniciar-sesion mr-5">
-                        <a href="./templates/iniciar.html">
-                            <button type="button">
-                                Iniciar
-                                <i class="bi bi-box-arrow-in-right"></i>
-                            </button>
-                        </a>
-                    </div>
-                    <div class="registrarse">
-                        <a href="./templates/registrarse.html">
-                            <button type="button">
-                                Registrarse
-                                <i class="bi bi-check-circle"></i>
-                            </button>
-                        </a>
-                    </div>
-                    <div class="carro mr-5">
-                        <a href="./checkout.html">
-                            <button type="button">
-                                Carro
-                                <i class="bi bi-bag"></i>
-                          </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
+{% extends 'app/base.html' %}
+{% load static %}
+{% block contenido %}
     <!-- buscador -->
     <div class="contenedor d-flex flex-row justify-content-end">
         <div class="buscador">
@@ -97,7 +16,7 @@
         <div class="container contenedor-hero">
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <img class="img-fluid" src="./img/pinturas/pintura1.jpg" alt="pintura1">
+                    <img class="img-fluid" src="{% static 'app/img/pinturas/pintura1.jpg' %}" alt="pintura1">
                 </div>
                 <div class="col-12 col-md-6">
                     <h1 class="seccion-titulo-hero">Cooperativa Artística Ground Zero</h1>
@@ -151,7 +70,7 @@
                 <div class="carousel-item active">
                     <div class="container">
                         <a href="./templates/obras/pinturas html/p-bridg-1.html">
-                            <img class="producto-imagen img-fluid" src="./img/productos/pinturas/p-bridg-1.jpg"
+                            <img class="producto-imagen img-fluid" src="{% static 'app/img/productos/pinturas/p-bridg-1.jpg' %}"
                                 alt="producto1">
                         </a>
                         <h2>Over the Mind</h2>
@@ -169,7 +88,7 @@
                 <div class="carousel-item">
                     <div class="container">
                         <a href="./templates/obras/esculturas html/e-fig2-1.html">
-                            <img class="producto-imagen img-fluid" src="./img/productos/esculturas/e-fig2-1.jpg"
+                            <img class="producto-imagen img-fluid" src="{% static 'app/img/productos/esculturas/e-fig2-1.jpg' %}"
                                 alt="producto2">
                         </a>
                         <h2>San Helmut</h2>
@@ -187,7 +106,7 @@
                 <div class="carousel-item">
                     <div class="container">
                         <a href="./templates/obras/orfebreria html/o-lef-1.html">
-                            <img class="producto-imagen img-fluid" src="./img/productos/orfebreria/o-lef-1.jpg"
+                            <img class="producto-imagen img-fluid" src="{% static 'app/img/productos/orfebreria/o-lef-1.jpg' %}"
                                 alt="producto3">
                         </a>
                         <h2>Otoño</h2>
@@ -205,7 +124,7 @@
                 <div class="carousel-item">
                     <div class="container">
                         <a href="./templates/obras/tejidos html/t-blnk.html">
-                            <img class="producto-imagen img-fluid" src="./img/productos/tejidos/t-blnk-1.jpg"
+                            <img class="producto-imagen img-fluid" src="{% static 'app/img/productos/tejidos/t-blnk-1.jpg' %}"
                                 alt="producto4">
                         </a>
                         <h2>Manto</h2>
@@ -247,25 +166,25 @@
             <div class="row">
                 <div class="columna col-12 col-md-3">
                     <a href="./templates/pinturas.html">
-                        <img class="img-fluid" src="./img/categorias/pintura.jpg" alt="categoria pintura">
+                        <img class="img-fluid" src="{% static 'app/img/categorias/pintura.jpg' %}" alt="categoria pintura">
                     </a>
                     <h2 class="cat-titulo">Pintura</h2>
                 </div>
                 <div class="columna col-12 col-md-3">
                     <a href="./templates/escultura.html">
-                        <img class="img-fluid" src="./img/categorias/sculpture.jpg" alt="categoria escultura">
+                        <img class="img-fluid" src="{% static 'app/img/categorias/sculpture.jpg' %}" alt="categoria escultura">
                     </a>
                     <h2 class="cat-titulo">Escultura</h2>
                 </div>
                 <div class="columna col-12 col-md-3">
                     <a href="./templates/orfebreria.html">
-                        <img class="img-fluid" src="./img/categorias/orfebreria.jpg" alt="categoria orfebreria">
+                        <img class="img-fluid" src="{% static 'app/img/categorias/orfebreria.jpg' %}" alt="categoria orfebreria">
                     </a>
                     <h2 class="cat-titulo">Orfebrería</h2>
                 </div>
                 <div class="columna col-12 col-md-3">
                     <a href="./templates/tejidos.html">
-                        <img class="img-fluid" src="./img/categorias/tejidos.jpg" alt="categoria tejidos">
+                        <img class="img-fluid" src="{% static 'app/img/categorias/tejidos.jpg' %}" alt="categoria tejidos">
                     </a>
                     <h2 class="cat-titulo">Tejidos</h2>
                 </div>
@@ -280,25 +199,25 @@
             <div class="row">
                 <div class="columna col-12 col-md-3">
                     <a href="./templates/artistas/mari.html">
-                        <img class="img-fluid" src="./img/artistas/artista1.jpg" alt="artista 1">
+                        <img class="img-fluid" src="{% static 'app/img/artistas/artista1.jpg' %}" alt="artista 1">
                     </a>
                     <h2 class="cat-titulo">Marí</h2>
                 </div>
                 <div class="columna col-12 col-md-3">
                     <a href="./templates/artistas/jose.html">
-                        <img class="img-fluid" src="./img/artistas/artista2.jpg" alt="artista 2">
+                        <img class="img-fluid" src="{% static 'app/img/artistas/artista2.jpg' %}" alt="artista 2">
                     </a>
                     <h2 class="cat-titulo">Jose</h2>
                 </div>
                 <div class="columna col-12 col-md-3">
                     <a href="./templates/artistas/constanza.html">
-                        <img class="img-fluid" src="./img/artistas/artista3.jpg" alt="artista 3">
+                        <img class="img-fluid" src="{% static 'app/img/artistas/artista3.jpg' %}" alt="artista 3">
                     </a>
                     <h2 class="cat-titulo">Constanza</h2>
                 </div>
                 <div class="columna col-12 col-md-3">
                     <a href="./templates/artistas/genesis.html">
-                        <img class="img-fluid" src="./img/artistas/artista4.jpg" alt="artista 4">
+                        <img class="img-fluid" src="{% static 'app/img/artistas/artista4.jpg' %}" alt="artista 4">
                     </a>
                     <h2 class="cat-titulo">Génesis</h2>
                 </div>
@@ -330,33 +249,4 @@
         </div>
     </section>
 
-    <!-- footer -->
-    <footer class="seccion-oscura d-flex flex-column align-items-center justify-content-center">
-        <img class="footer-logo" src="./img/logo/logo.png" alt="logo de la cooperativa">
-        <p class="footer-texto">Cooperativa Artística Ground Zero
-        <div class="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
-            <a href="https://twitter.com/?lang=es" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-twitter"></i>
-            </a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-instagram"></i>
-            </a>
-            <a href="mailto: groundzero@micorreo.com" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-envelope"></i>
-            </a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-linkedin"></i>
-            </a>
-        </div>
-        <div class="derechos-autor">Creado por Nicolás Oses, Sebastián Arriagada (2023) &#169;</div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
-        integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+{% endblock %}
