@@ -14,3 +14,9 @@ def iniciar(request):
 
 def registrarse(request):
     return render(request, 'app/plantillas/registrarse.html')
+
+def checkout(request):
+    return render(request, 'app/plantillas/checkout.html')
+
+def  pinturas(request):
+    return render(request, 'app/plantillas/categorias/pinturas.html')
