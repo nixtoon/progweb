@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="es">
 
@@ -22,10 +23,10 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 
   <!--css-->
-  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
 
   <!-- favicon -->
-  <link rel="icon" type="image/x-icon" href="../../../img/logo/logo.png">
+  <link rel="icon" type="image/x-icon" href="{% static 'app/img/logo/logo.png' %}">
 
   <!-- titulo -->
   <title>Ground Zero | Pinturas</title>
@@ -36,8 +37,8 @@
   <!-- barra de navegacion -->
   <nav class="navbar navbar-expand-md sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="../../../index.html">
-        <img src="../../../img/logo/logo.png" alt="logo de la cooperativa"> Ground-Zero
+      <a class="navbar-brand" href="/">
+        <img src="{% static 'app/img/logo/logo.png' %}" alt="logo de la cooperativa"> Ground-Zero
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,21 +47,21 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav text-center">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="../../../index.html">INICIO</a>
+            <a class="nav-link" aria-current="page" href="/">INICIO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="../../../index.html#categorias">CATEGORÍAS</a>
+            <a class="nav-link active" href="/#categorias">CATEGORÍAS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../../index.html#artistas">ARTISTAS</a>
+            <a class="nav-link" href="/#artistas">ARTISTAS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../../templates/contacto.html">CONTACTO</a>
+            <a class="nav-link" href="/contacto">CONTACTO</a>
           </li>
         </ul>
         <div class="d-flex flex-row justify-content-center align-items-center">
           <div class="iniciar-sesion mr-5">
-            <a href="#">
+            <a href="/iniciar">
               <button type="button">
                 Iniciar
                 <i class="bi bi-box-arrow-in-right"></i>
@@ -68,10 +69,18 @@
             </a>
           </div>
           <div class="registrarse">
-            <a href="../../../templates/registrarse.html">
+            <a href="/registrarse">
               <button type="button">
                 Registrarse
                 <i class="bi bi-check-circle"></i>
+              </button>
+            </a>
+          </div>
+          <div class="carro mr-5">
+            <a href="/checkout">
+              <button type="button">
+                Carro
+                <i class="bi bi-bag"></i>
               </button>
             </a>
           </div>
@@ -81,42 +90,47 @@
   </nav>
 
   <!-- PRODUCTO-->
-  <section class="container sproduct my-5 pt-5">
+  <section class="container sproduct mb-5">
     <div class="row mt-5">
-        <div class=" col-lg-5 col-md-12 col-12">
-            <img class="img-fluid w-100 pb-1" src="../../../img/productos/tejidos/t-blnk-1.jpg" alt="">
-            <div class="small-img-group">
-                <div class="small-img-col">
-                    <img src="../../../img/productos/tejidos/t-blnk-1.jpg" width="100%" class="small-img" alt="">
-                </div>
-                <div class="small-img-col">
-                    <img src="../../../img/productos/tejidos/t-blnk-2.jpg" width="100%" class="small-img" alt="">
-                </div>
-                <div class="small-img-col">
-                    <img src="../../../img/productos/tejidos/t-blnk-1.jpg" width="100%" class="small-img" alt="">
-                </div>
-            </div>
+      <div class="col-lg-5 col-md-12 col-12">
+        <img src="{% static 'app/img/productos/pinturas/p-bridg3-1.jpg' %}" class="img-fluid w-100 pb-1" alt="">
+        <div class="small-img-group">
+          <div class="small-img-col">
+            <img src="{% static 'app/img/productos/pinturas/p-bridg3-1.jpg' %}" width="100%" class="small-img" alt="">
+          </div>
+          <div class="small-img-col">
+            <img src="{% static 'app/img/productos/pinturas/p-bridg3-2.jpg' %}" width="100%" class="small-img" alt="">
+          </div>
+          <div class="small-img-col">
+            <img src="{% static 'app/img/productos/pinturas/p-bridg3-3.jpg' %}" width="100%" class="small-img" alt="">
+          </div>
         </div>
-        <div class="col-lg-6 col-md-12 col-12">
-            <h6>Obras / Tejidos</h6>
-            <h2 class="py-4">Manto</h2>
-            <h5>Precio no disponible</h5>
-            <input type="number" value="1">
-            <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al carro</button>
-            <h4 class="mt-5 mb-5">Detalle</h4>
-            <span>Etiam urna quam, pretium at ultrices sed, interdum eget quam. Donec porttitor augue ac justo elementum, id posuere 
-            lorem euismod. Nam efficitur eleifend lectus. Donec venenatis purus nec quam viverra, imperdiet semper magna laoreet. 
-            Nam ante elit, porta sit amet elit vel, rhoncus ultrices erat. Integer ac ultrices leo, vel auctor lacus. Suspendisse 
-            rhoncus orci non nulla laoreet feugiat. Phasellus lectus purus, dictum at neque sed, vestibulum interdum enim. Phasellus 
-            quis nulla sed arcu maximus pretium. </span>
-        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 col-12">
+        <h6>Obras / Pinturas</h6>
+        <h2 class="py-4">Recuerdos Privados</h2>
+        <h5>Precio no disponible</h5>
+        <input type="number" value="1">
+        <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
+          carro</button>
+        <h4 class="mt-5 mb-5">Detalle</h4>
+        <span>Etiam urna quam, pretium at ultrices sed, interdum eget quam. Donec porttitor augue ac justo elementum, id
+          posuere
+          lorem euismod. Nam efficitur eleifend lectus. Donec venenatis purus nec quam viverra, imperdiet semper magna
+          laoreet.
+          Nam ante elit, porta sit amet elit vel, rhoncus ultrices erat. Integer ac ultrices leo, vel auctor lacus.
+          Suspendisse
+          rhoncus orci non nulla laoreet feugiat. Phasellus lectus purus, dictum at neque sed, vestibulum interdum enim.
+          Phasellus
+          quis nulla sed arcu maximus pretium. </span>
+      </div>
     </div>
   </section>
-  
+
 
   <!-- footer -->
   <footer class="seccion-oscura d-flex flex-column align-items-center justify-content-center">
-    <img class="footer-logo" src="../../../img/logo/logo.png" alt="logo de la cooperativa">
+    <img class="footer-logo" src="{% static 'app/img/logo/logo.png' %}" alt="logo de la cooperativa">
     <p class="footer-texto">Cooperativa Artística Ground Zero
     <div class="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
       <a href="https://twitter.com/?lang=es" target="_blank" rel="noopener noreferrer">

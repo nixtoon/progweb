@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="es">
 
@@ -22,10 +23,10 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 
   <!--css-->
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
 
   <!-- favicon -->
-  <link rel="icon" type="image/x-icon" href="../img/logo/logo.png">
+  <link rel="icon" type="image/x-icon" href="{% static 'app/img/logo/logo.png' %}">
 
   <!-- titulo -->
   <title>Ground Zero | Orfebrería</title>
@@ -36,8 +37,8 @@
   <!-- barra de navegacion -->
   <nav class="navbar navbar-expand-md sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="../index.html">
-        <img src="../img/logo/logo.png" alt="logo de la cooperativa"> Ground-Zero
+      <a class="navbar-brand" href="/">
+        <img src="{% static 'app/img/logo/logo.png' %}" alt="logo de la cooperativa"> Ground-Zero
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,21 +47,21 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav text-center">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="../index.html">INICIO</a>
+            <a class="nav-link" aria-current="page" href="/">INICIO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="../index.html#categorias">CATEGORÍAS</a>
+            <a class="nav-link active" href="/#categorias">CATEGORÍAS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../index.html#artistas">ARTISTAS</a>
+            <a class="nav-link" href="/#artistas">ARTISTAS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./templates/contacto.html">CONTACTO</a>
+            <a class="nav-link" href="/contacto">CONTACTO</a>
           </li>
         </ul>
         <div class="d-flex flex-row justify-content-center align-items-center">
           <div class="iniciar-sesion mr-5">
-            <a href="#">
+            <a href="/iniciar">
               <button type="button">
                 Iniciar
                 <i class="bi bi-box-arrow-in-right"></i>
@@ -68,7 +69,7 @@
             </a>
           </div>
           <div class="registrarse">
-            <a href="./templates/registrarse.html">
+            <a href="/registrarse">
               <button type="button">
                 Registrarse
                 <i class="bi bi-check-circle"></i>
@@ -76,7 +77,7 @@
             </a>
           </div>
           <div class="carro mr-5">
-            <a href="./checkout.html">
+            <a href="/checkout">
               <button type="button">
                 Carro
                 <i class="bi bi-bag"></i>
@@ -89,7 +90,7 @@
   </nav>
 
   <!-- menu grid-->
-  <div class="container">
+  <div class="container mt-5 mb-5">
 
     <div class="row mb-5">
       <h2 class="obras-sub-title">Orfebreria</h2>
@@ -105,8 +106,8 @@
             <div class="featured"> <!--obra destacada-->
               <span class="badge rounded-0"><i class="fa-regular fa-star"></i>destacada</span>
             </div>
-            <a href="./obras/orfebreria html/o-bell-1.html">
-              <img src="../img/productos/orfebreria/o-bell-1.jpg" alt="Pintura" class="img-fluid">
+            <a href="/campana">
+              <img src="{% static 'app/img/productos/orfebreria/o-bell-1.jpg' %}" alt="Pintura" class="img-fluid">
             </a>
             <div class="cart-btn"> <!--boton carrito-->
               <button class="btn btn-white shadow-sm rounded-pill">
@@ -132,8 +133,8 @@
             <div class="icons position-absolute">
               <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
             </div>
-            <a href="./obras/orfebreria html/o-bir-1.html">
-              <img src="../img/productos/orfebreria/o-bir-1.jpg" alt="Pintura" class="img-fluid">
+            <a href="/pajaro">
+              <img src="{% static 'app/img/productos/orfebreria/o-bir-1.jpg' %}" alt="Pintura" class="img-fluid">
             </a>
             <div class="cart-btn"> <!--boton carrito-->
               <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
@@ -160,8 +161,8 @@
             <div class="featured"> <!--obra destacada-->
               <span class="badge rounded-0"><i class="fa-regular fa-star"></i>destacada</span>
             </div>
-            <a href="./obras/orfebreria html/o-drfly-1.html">
-              <img src="../img/productos/orfebreria/o-drfly-1.jpg" alt="Pintura" class="img-fluid">
+            <a href="/dragon_fly">
+              <img src="{% static 'app/img/productos/orfebreria/o-drfly-1.jpg' %}" alt="Pintura" class="img-fluid">
             </a>
             <div class="cart-btn"> <!--boton carrito-->
               <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
@@ -186,7 +187,7 @@
               <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
             </div>
             <a href="./obras/orfebreria html/o-feth-1.html">
-              <img src="../img/productos/orfebreria/o-feth-1.jpg" alt="Pintura" class="img-fluid">
+              <img src="{% static 'app/img/productos/orfebreria/o-feth-1.jpg' %}" alt="Pintura" class="img-fluid">
             </a>
             <div class="cart-btn"> <!--boton carrito-->
               <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
@@ -215,7 +216,7 @@
               <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
             </div>
             <a href="./obras/orfebreria html/o-fig-1.html">
-              <img src="../img/productos/orfebreria/o-fig-1.jpg" alt="Pintura" class="img-fluid">
+              <img src="{% static 'app/img/productos/orfebreria/o-fig-1.jpg' %}" alt="Pintura" class="img-fluid">
             </a>
             <div class="cart-btn"> <!--boton carrito-->
               <button class="btn btn-white shadow-sm rounded-pill">
@@ -245,7 +246,7 @@
               <span class="badge rounded-0"><i class="fa-regular fa-star"></i>destacada</span>
             </div>
             <a href="./obras/orfebreria html/o-fig2-1.html">
-                <img src="../img/productos/orfebreria/o-fig2-1.jpg" alt="Pintura" class="img-fluid">
+                <img src="{% static 'app/img/productos/orfebreria/o-fig2-1.jpg' %}" alt="Pintura" class="img-fluid">
             </a>
             <div class="cart-btn"> <!--boton carrito-->
               <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
@@ -272,8 +273,8 @@
             <div class="featured"> <!--obra destacada-->
               <span class="badge rounded-0"><i class="fa-regular fa-star"></i>destacada</span>
             </div>
-            <a href="./obras/orfebreria html/o-lef-1.html">
-              <img src="../img/productos/orfebreria/o-lef-1.jpg" alt="Pintura" class="img-fluid">
+            <a href="/otoño">
+              <img src="{% static 'app/img/productos/orfebreria/o-lef-1.jpg' %}" alt="Pintura" class="img-fluid">
             </a>
             <div class="cart-btn"> <!--boton carrito-->
               <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
@@ -298,7 +299,7 @@
               <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
             </div>
             <a href="./obras/orfebreria html/o-mon-1.html">
-              <img src="../img/productos/orfebreria/o-mon-1.jpg" alt="Pintura" class="img-fluid">
+              <img src="{% static 'app/img/productos/orfebreria/o-mon-1.jpg' %}" alt="Pintura" class="img-fluid">
             </a>
             <div class="cart-btn"> <!--boton carrito-->
               <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
@@ -320,7 +321,7 @@
 
   <!-- footer -->
   <footer class="seccion-oscura d-flex flex-column align-items-center justify-content-center">
-    <img class="footer-logo" src="../img/logo/logo.png" alt="logo de la cooperativa">
+    <img class="footer-logo" src="{% static 'app/img/logo/logo.png' %}" alt="logo de la cooperativa">
     <p class="footer-texto">Cooperativa Artística Ground Zero
     <div class="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
       <a href="https://twitter.com/?lang=es" target="_blank" rel="noopener noreferrer">

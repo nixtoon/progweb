@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,9 +16,9 @@
   <!-- bootstrap icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <!-- css -->
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
   <!-- favicon -->
-  <link rel="icon" type="image/x-icon" href="../../img/logo/logo.png">
+  <link rel="icon" type="image/x-icon" href="{% static 'app/img/logo/logo.png' %}">
   <!-- titulo de la pagina -->
   <title>Ground Zero | Marí</title>
 </head>
@@ -26,8 +27,8 @@
   <!-- barra de navegacion -->
   <nav class="navbar navbar-expand-md sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="../../index.html">
-        <img src="../../img/logo/logo.png" alt="logo de la cooperativa"> Ground-Zero
+      <a class="navbar-brand" href="/">
+        <img src="{% static 'app/img/logo/logo.png' %}" alt="logo de la cooperativa"> Ground-Zero
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,21 +37,21 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav text-center">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="../../index.html">INICIO</a>
+            <a class="nav-link" aria-current="page" href="/">INICIO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../index.html#categorias">CATEGORÍAS</a>
+            <a class="nav-link" href="/#categorias">CATEGORÍAS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../index.html#artistas">ARTISTAS</a>
+            <a class="nav-link active" href="/#artistas">ARTISTAS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../contacto.html">CONTACTO</a>
+            <a class="nav-link" href="/contacto">CONTACTO</a>
           </li>
         </ul>
         <div class="d-flex flex-row justify-content-center align-items-center">
           <div class="iniciar-sesion mr-5">
-            <a href="../iniciar.html">
+            <a href="/iniciar">
               <button type="button">
                 Iniciar
                 <i class="bi bi-box-arrow-in-right"></i>
@@ -58,13 +59,21 @@
             </a>
           </div>
           <div class="registrarse">
-            <a href="../registrarse.html">
+            <a href="/registrarse">
               <button type="button">
                 Registrarse
                 <i class="bi bi-check-circle"></i>
               </button>
             </a>
           </div>
+          <div class="carro mr-5">
+            <a href="/checkout">
+                <button type="button">
+                    Carro
+                    <i class="bi bi-bag"></i>
+              </button>
+            </a>
+        </div>
         </div>
       </div>
     </div>
@@ -102,7 +111,7 @@
         </div>
         <div class="col-12 col-md-4">
           <div class="imagen-perfil">
-            <img class="img-fluid rounded-circle" src="../../img/artistas/artista1.jpg" alt="foto perfil">
+            <img class="img-fluid rounded-circle" src="{% static 'app/img/artistas/artista1.jpg' %}" alt="foto perfil">
           </div>
         </div>
         <div class="col-12 col-md-4">
@@ -133,8 +142,8 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="container">
-                <a href="../obras/pinturas html/p-bridg2-1.html">
-                  <img class="producto-imagen img-fluid" src="../../img/productos/pinturas/p-bridg2-1.jpg" alt="producto1">
+                <a href="/san_cisco">
+                  <img class="producto-imagen img-fluid" src="{% static 'app/img/productos/pinturas/p-bridg2-1.jpg' %}" alt="producto1">
                 </a>
                 <h2>San Cisco</h2>
                 <p class="producto-texto">
@@ -150,8 +159,8 @@
             </div>
             <div class="carousel-item">
               <div class="container">
-                <a href="../obras/esculturas html/e-fig2-1.html">
-                  <img class="producto-imagen img-fluid" src="../../img/productos/esculturas/e-fig2-1.jpg" alt="producto2">
+                <a href="/san_helmut">
+                  <img class="producto-imagen img-fluid" src="{% static 'app/img/productos/esculturas/e-fig2-1.jpg' %}" alt="producto2">
                 </a>
                 <h2>San Helmut</h2>
                 <p class="producto-texto">
@@ -167,8 +176,8 @@
             </div>
             <div class="carousel-item">
               <div class="container">
-                <a href="../obras/orfebreria html/o-bell-1.html">
-                  <img class="producto-imagen img-fluid" src="../../img/productos/orfebreria/o-bell-1.jpg" alt="producto3">
+                <a href="/campana">
+                  <img class="producto-imagen img-fluid" src="{% static 'app/img/productos/orfebreria/o-bell-1.jpg' %}" alt="producto3">
                 </a>
                 <h2>Campana</h2>
                 <p class="producto-texto">
@@ -198,7 +207,7 @@
 
   <!-- footer -->
   <footer class="seccion-oscura d-flex flex-column align-items-center justify-content-center">
-    <img class="footer-logo" src="../../img/logo/logo.png" alt="logo de la cooperativa">
+    <img class="footer-logo" src="{% static 'app/img/logo/logo.png' %}" alt="logo de la cooperativa">
     <p class="footer-texto">Cooperativa Artística Ground Zero
     <div class="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
       <a href="https://twitter.com/?lang=es" target="_blank" rel="noopener noreferrer">
