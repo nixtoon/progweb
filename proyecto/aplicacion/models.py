@@ -5,7 +5,7 @@ class Artista(models.Model):
   rut              = models.CharField(primary_key=True, max_length=10)
   nombre           = models.CharField(max_length=20)
   apellido_paterno = models.CharField(max_length=20)
-  apelldio_materno = models.CharField(max_length=20)
+  apellido_materno = models.CharField(max_length=20)
   fecha_nacimiento = models.DateField(blank=False, null=False)
   telefono         = models.CharField(max_length=20)
   email            = models.EmailField(unique=True, max_length=80, blank=True, null=True)

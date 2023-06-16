@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import *
+from django.contrib import messages
+from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 
@@ -95,3 +98,120 @@ def laguna_mental(request):
 
 def dragon_fly(request):
     return render(request, 'app/plantillas/obras/orfebreria/dragon_fly.html')
+
+#crud obras
+
+def agregar_obras(request):
+    categorias = Categoria.objects.all()
+    artistas   = Artista.objects.all()
+
+    data = {
+        'categorias': categorias,
+        'artistas'  : artistas
+    }
+
+    if request.method == 'POST':
+
+        titulo           = request.POST["titulo"]
+        categoria        = request.POST["categoria"]
+        artista          = request.POST["artista"]
+        precio           = request.POST["precio"]
+        fechaPublicacion = request.POST["fecha"]
+        descripcion      = request.POST["descripcion"]
+
+        objCategoria = Categoria.objects.get(id = categoria)
+        objArtista   = Artista.objects.get(rut = artista)
+
+        obra = Obra.objects.create(
+            titulo            = titulo,
+            precio            = precio,
+            descripcion       = descripcion,
+            fecha_publicacion = fechaPublicacion,
+            categoria         = objCategoria,
+            artista           = objArtista,
+        )
+  
+        if 'imagen' in request.FILES:
+            imagen      = request.FILES['imagen']
+            obra.imagen = imagen
+            obra.save()
+            messages.success(request, 'Obra registrada correctamente')
+        else:
+            messages.warning(request, 'No se ha seleccionado ninguna imagen')
+
+        return redirect(to='listar_obras')
+
+    return render(request, 'app/plantillas/crud_obras/agregar.html', data)
+
+def listar_obras(request):
+    obras = Obra.objects.all()
+
+    data = {
+        'obras': obras
+    }
+
+    return render(request, 'app/plantillas/crud_obras/listar.html', data)
+
+
+def modificar_obras(request, id):
+    obra       = get_object_or_404(Obra, id= id)
+    categorias = Categoria.objects.all()
+    artistas   = Artista.objects.all()
+
+    if request.method == 'POST':
+        titulo            = request.POST['titulo']
+        categoria         = request.POST['categoria']
+        artista           = request.POST['artista']
+        precio            = request.POST['precio']
+        fecha_publicacion = request.POST['fecha']
+        descripcion       = request.POST['descripcion']
+        
+        objCategoria = Categoria.objects.get(id = categoria)
+        objArtista   = Artista.objects.get(rut = artista)
+
+        obra.titulo            = titulo
+        obra.categoria         = objCategoria
+        obra.artista           = objArtista
+        obra.precio            = precio
+        obra.fecha_publicacion = fecha_publicacion
+        obra.descripcion       = descripcion
+        
+        if 'imagen' in request.FILES:
+            imagen      = request.FILES['imagen']
+            obra.imagen = imagen
+        
+        obra.save()
+        messages.success(request, 'Obra modificada correctamente')
+        return redirect('listar_obras')
+    
+    data = {
+        'obra'      : obra,
+        'categorias': categorias,
+        'artistas'  : artistas,
+    }
+    return render(request, 'app/plantillas/crud_obras/modificar.html', data)
+
+def eliminar_obras(request, id):
+
+    try:
+        obra = get_object_or_404(Obra, id= id)
+        obra.delete()
+        messages.success(request, "Eliminado Correctamente")
+        obras = Obra.objects.all()
+
+        data = {
+            'obras': obras,
+        }
+
+        return render(request, 'app/plantillas/crud_obras/listar.html', data)
+    
+    except:
+        messages.warning(request, "Error al eliminar")
+
+        obras = Obra.objects.all()
+
+        data = {
+            'obras': obras,
+        }
+
+        return render(request, 'app/plantillas/crud_obras/listar.html', data)
