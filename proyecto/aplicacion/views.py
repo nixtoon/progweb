@@ -17,6 +17,10 @@ def iniciar(request):
     context = {}
     return render(request, 'app/plantillas/iniciar.html')
 
+def iniciar_artista(request):
+    context = {}
+    return render(request, 'app/plantillas/iniciar_artista.html')
+
 def registrarse(request):
     context = {}
     return render(request, 'app/plantillas/registrarse.html')
