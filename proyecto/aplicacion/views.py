@@ -6,8 +6,13 @@ from .forms import CategoriaForm
 # Create your views here.
 
 def index(request):
-    context = {}
-    return render(request, 'app/index.html', context)
+    obras = Obra.objects.all()
+    artistas = Artista.objects.all()
+    data = {
+        'obras' : obras,
+        'artistas' : artistas
+    }
+    return render(request, 'app/index.html', data)
 
 def contacto(request):
     context = {}
@@ -63,58 +68,50 @@ def tejidos(request):
 # views de los artistas
 
 def constanza(request):
-    return render(request, 'app/plantillas/artistas/constanza.html')
+    obras = Obra.objects.raw("SELECT * FROM aplicacion_obra WHERE artista_id = '33333333-3'")
+    artista = Artista.objects.raw("SELECT * FROM aplicacion_artista WHERE rut = '33333333-3'")
+    data = {
+        'obras': obras,
+        'artista': artista,
+    }
+    return render(request, 'app/plantillas/artistas/constanza.html', data)
 
 def genesis(request):
-    return render(request, 'app/plantillas/artistas/genesis.html')
+    obras = Obra.objects.raw("SELECT * FROM aplicacion_obra WHERE artista_id = '44444444-4'")
+    artista = Artista.objects.get(rut = '44444444-4')
+    data = {
+        'obras': obras,
+        'artista': artista,
+    }
+    return render(request, 'app/plantillas/artistas/genesis.html', data)
 
 def jose(request):
-    return render(request, 'app/plantillas/artistas/jose.html')
+    obras = Obra.objects.raw("SELECT * FROM aplicacion_obra WHERE artista_id = '22222222-2'")
+    artista = Artista.objects.get(rut = '22222222-2')
+    data = {
+        'obras': obras,
+        'artista': artista,
+    }
+    return render(request, 'app/plantillas/artistas/jose.html', data)
 
 def mari(request):
-    return render(request, 'app/plantillas/artistas/mari.html')
+    obras = Obra.objects.raw("SELECT * FROM aplicacion_obra WHERE artista_id = '11111111-1'")
+    artista = Artista.objects.get(rut = '11111111-1')
+    data = {
+        'obras': obras,
+        'artista': artista,
+    }
+    return render(request, 'app/plantillas/artistas/mari.html', data)
 
 
 # views de las obras
 
-def over_the_mind(request):
-    return render(request, 'app/plantillas/obras/pinturas/over_the_mind.html')
-
-def san_helmut(request):
-    return render(request, 'app/plantillas/obras/esculturas/san_helmut.html')
-
-def otoño(request):
-    return render(request, 'app/plantillas/obras/orfebreria/otoño.html')
-
-def manto(request):
-    return render(request, 'app/plantillas/obras/tejidos/manto.html')
-
-def san_cisco(request):
-    return render(request, 'app/plantillas/obras/pinturas/san_cisco.html')
-
-def campana(request):
-    return render(request, 'app/plantillas/obras/orfebreria/campana.html')
-
-def album(request):
-    return render(request, 'app/plantillas/obras/pinturas/album.html')
-
-def nav(request):
-    return render(request, 'app/plantillas/obras/esculturas/nav.html')
-
-def recuerdos_privados(request):
-    return render(request, 'app/plantillas/obras/pinturas/recuerdos_privados.html')
-
-def obserbuho(request):
-    return render(request, 'app/plantillas/obras/esculturas/obserbuho.html')
-
-def pajaro(request):
-    return render(request, 'app/plantillas/obras/orfebreria/pajaro.html')
-
-def laguna_mental(request):
-    return render(request, 'app/plantillas/obras/esculturas/laguna_mental.html')
-
-def dragon_fly(request):
-    return render(request, 'app/plantillas/obras/orfebreria/dragon_fly.html')
+def detalle_producto(request, id):
+    obra = get_object_or_404(Obra, id=id)
+    data = {
+        'obra': obra,
+    }
+    return render(request, 'app/plantillas/detalle_producto.html', data)
 
 # crud obras con formulario normal
 

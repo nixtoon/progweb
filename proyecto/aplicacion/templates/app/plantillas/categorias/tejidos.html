@@ -19,7 +19,7 @@
         <div class="product-box">
           <div class="product-inner-box position-relative obras-zoom">
             {% if t.imagen %}
-            <a href="{{ t.url }}">
+            <a href="{% url 'detalle_producto' t.id %}">
               <img src="{{ t.imagen.url }}" alt="Pintura" class="img-fluid">
             </a>
             {% else %}
