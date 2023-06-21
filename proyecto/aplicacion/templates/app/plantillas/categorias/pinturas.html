@@ -1,114 +1,30 @@
+{% extends 'app/base.html' %}
 {% load static %}
-<!doctype html>
-<html lang="es">
+{% load humanize %}
+{% block title %}
+<title>Gorund Zero | Pinturas</title>
+{% endblock %}
 
-<head>
-  <!-- metadatos -->
-  <meta charset="utf-8">
-  <meta name="author" content="Sebastian Arriagada, Nicolas Oses">
-  <meta name="description" content="Pagina web oficial de la Cooperativa Ground Zero">
-  <meta name="keywords" content="Ground-Zero, arte, pintura, escultura, orfebreria, tejidos">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!--fontawesome-->
-  <script src="https://kit.fontawesome.com/50588777ca.js" crossorigin="anonymous"></script>
-
-  <!-- bootstrap icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-
-
-  <!-- bootstrap 5.3.0 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-
-  <!--css-->
-  <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
-
-  <!-- favicon -->
-  <link rel="icon" type="image/x-icon" href="{% static 'app/img/logo/logo.png' %}">
-
-  <!-- titulo -->
-  <title>Ground Zero | Pinturas</title>
-
-</head>
-
-<body>
-  <!-- barra de navegacion -->
-  <nav class="navbar navbar-expand-md sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-        <img src="{% static 'app/img/logo/logo.png' %}" alt="logo de la cooperativa"> Ground-Zero
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav text-center">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/">INICIO</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="/#categorias">CATEGORÍAS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/#artistas">ARTISTAS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contacto">CONTACTO</a>
-          </li>
-        </ul>
-        <div class="d-flex flex-row justify-content-center align-items-center">
-          <div class="iniciar-sesion mr-5">
-            <a href="/iniciar">
-              <button type="button">
-                Iniciar
-                <i class="bi bi-box-arrow-in-right"></i>
-              </button>
-            </a>
-          </div>
-          <div class="registrarse">
-            <a href="/registrarse">
-              <button type="button">
-                Registrarse
-                <i class="bi bi-check-circle"></i>
-              </button>
-            </a>
-          </div>
-          <div class="carro mr-5">
-            <a href="/checkout">
-              <button type="button">
-                Carro
-                <i class="bi bi-bag"></i>
-              </button>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- menu grid-->
-  <div class="container mt-5 mb-5">
+{% block contenido %}
+<!-- menu grid-->
+<section>
+  <div class="container mt-3">
 
     <div class="row mb-5">
       <h2 class="obras-sub-title">Pinturas</h2>
     </div>
-
-    <div class="row">
+    <div class="row mb-3">
+      {% for p in pinturas %}
       <div class="col-12 col-md-3">
         <div class="product-box">
           <div class="product-inner-box position-relative obras-zoom">
-            <div class="icons position-absolute">
-              <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
-            </div>
-            <div class="featured"> <!--obra destacada-->
-              <span class="badge rounded-0"><i class="fa-regular fa-star"></i>destacada</span>
-            </div>
-            <a href="./obras/pinturas html/p-abs-1.html">
-              <img src="{% static 'app/img/productos/pinturas/p-abs-1.jpg' %}" alt="Pintura" class="img-fluid">
+            {% if p.imagen %}
+            <a href="{{ p.url }}">
+              <img src="{{ p.imagen.url }}" alt="Pintura" class="img-fluid">
             </a>
+            {% else %}
+              <img src="{% static 'app/img/logo/logo.png'%}" alt="" class="img-fluid">
+            {% endif %}
             <div class="cart-btn"> <!--boton carrito-->
               <button class="btn btn-white shadow-sm rounded-pill">
                 <i class="fa-solid fa-cart-plus"></i>
@@ -118,344 +34,23 @@
           </div>
           <div class="product-info">
             <div class="product-name">
-              <h2>Atardecer judio</h2>
+              <h2>{{ p.titulo | title }}</h2>
+            </div>
+            <div class="precio">
+              <h2>${{ p.precio | intcomma }}</h2>
             </div>
             <div class="artist-name">
-              <h3>Marí</h3>
+              <h3>{{ p.artista | capfirst }}</h3>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-md-3">
-        <div class="product-box">
-          <div class="product-inner-box position-relative obras-zoom">
-            <div class="icons position-absolute">
-              <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
-            </div>
-            <a href="./obras/pinturas html/p-abs2-1.html">
-              <img src="{% static 'app/img/productos/pinturas/p-abs2-1.jpg' %}" alt="Pintura" class="img-fluid">
-            </a>
-            <div class="cart-btn"> <!--boton carrito-->
-              <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
-                carro</button>
-            </div>
-          </div>
-          <div class="product-info">
-            <div class="product-name">
-              <h2>Dignidad</h2>
-            </div>
-            <div class="artist-name">
-              <h3>Constanza</h3>
-            </div>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
 
-      <div class="col-12 col-md-3">
-        <div class="product-box">
-          <div class="product-inner-box position-relative obras-zoom">
-            <div class="icons position-absolute">
-              <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
-            </div>
-            <div class="featured"> <!--obra destacada-->
-              <span class="badge rounded-0"><i class="fa-regular fa-star"></i>destacada</span>
-            </div>
-            <a href="./obras/pinturas html/p-abs3-1.html">
-              <img src="{% static 'app/img/productos/pinturas/p-abs3-1.jpg' %}" alt="Pintura" class="img-fluid">
-            </a>
-            <div class="cart-btn"> <!--boton carrito-->
-              <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
-                carro</button>
-            </div>
-          </div>
-          <div class="product-info">
-            <div class="product-name">
-              <h2>Laguna mental</h2>
-            </div>
-            <div class="artist-name">
-              <h3>Génesis</h3>
-            </div>
-          </div>
-        </div>
-      </div>
+</section>
 
-      <div class="col-12 col-md-3">
-        <div class="product-box">
-          <div class="product-inner-box position-relative obras-zoom">
-            <div class="icons position-absolute">
-              <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
-            </div>
-            <a href="/over_the_mind">
-              <img src="{% static 'app/img/productos/pinturas/p-bridg-1.jpg' %}" alt="Pintura" class="img-fluid">
-            </a>
-            <div class="cart-btn"> <!--boton carrito-->
-              <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
-                carro</button>
-            </div>
-          </div>
-          <div class="product-info">
-            <div class="product-name">
-              <h2>Over the mind</h2>
-            </div>
-            <div class="artist-name">
-              <h3>Génesis</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <br>
-
-    <div class="row">
-      <div class="col-12 col-md-3">
-        <div class="product-box">
-          <div class="product-inner-box position-relative obras-zoom">
-            <div class="icons position-absolute">
-              <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
-            </div>
-            <a href="/san_cisco">
-              <img src="{% static 'app/img/productos/pinturas/p-bridg2-1.jpg' %}" alt="Pintura" class="img-fluid">
-            </a>
-            <div class="cart-btn"> <!--boton carrito-->
-              <button class="btn btn-white shadow-sm rounded-pill">
-                <i class="fa-solid fa-cart-plus"></i>
-                Agregar al carro
-              </button>
-            </div>
-          </div>
-          <div class="product-info">
-            <div class="product-name">
-              <h2>San Cisco</h2>
-            </div>
-            <div class="artist-name">
-              <h3>Marí</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-3">
-        <div class="product-box">
-          <div class="product-inner-box position-relative obras-zoom">
-            <div class="icons position-absolute">
-              <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
-            </div>
-            <div class="featured"> <!--obra destacada-->
-              <span class="badge rounded-0"><i class="fa-regular fa-star"></i>destacada</span>
-            </div>
-            <a href="/recuerdos_privados">
-                <img src="{% static 'app/img/productos/pinturas/p-bridg3-1.jpg' %}" alt="Pintura" class="img-fluid">
-            </a>
-            <div class="cart-btn"> <!--boton carrito-->
-              <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
-                carro</button>
-            </div>
-          </div>
-          <div class="product-info">
-            <div class="product-name">
-              <h2>Recuerdos privados</h2>
-            </div>
-            <div class="artist-name">
-              <h3>Constanza</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-3">
-        <div class="product-box">
-          <div class="product-inner-box position-relative obras-zoom">
-            <div class="icons position-absolute">
-              <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
-            </div>
-            <div class="featured"> <!--obra destacada-->
-              <span class="badge rounded-0"><i class="fa-regular fa-star"></i>destacada</span>
-            </div>
-            <a href="./obras/pinturas html/p-brush-1.html">
-              <img src="{% static 'app/img/productos/pinturas/p-brush-1.jpg' %}" alt="Pintura" class="img-fluid">
-            </a>
-            <div class="cart-btn"> <!--boton carrito-->
-              <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
-                carro</button>
-            </div>
-          </div>
-          <div class="product-info">
-            <div class="product-name">
-              <h2>Popper</h2>
-            </div>
-            <div class="artist-name">
-              <h3>Jose</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-3">
-        <div class="product-box">
-          <div class="product-inner-box position-relative obras-zoom">
-            <div class="icons position-absolute">
-              <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
-            </div>
-            <a href="./obras/pinturas html/p-city-1.html">
-              <img src="{% static 'app/img/productos/pinturas/p-city-1.jpg' %}" alt="Pintura" class="img-fluid">
-            </a>
-            <div class="cart-btn"> <!--boton carrito-->
-              <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
-                carro</button>
-            </div>
-          </div>
-          <div class="product-info">
-            <div class="product-name">
-              <h2>Nostalgia</h2>
-            </div>
-            <div class="artist-name">
-              <h3>Marí</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <br>
-
-    <div class="row">
-      <div class="col-12 col-md-3">
-        <div class="product-box">
-          <div class="product-inner-box position-relative obras-zoom">
-            <div class="icons position-absolute">
-              <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
-            </div>
-            <a href="./obras/pinturas html/p-city2-1.html">
-              <img src="{% static 'app/img/productos/pinturas/p-city2-1.jpg' %}" alt="Pintura" class="img-fluid">
-            </a>
-            <div class="cart-btn"> <!--boton carrito-->
-              <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
-                carro</button>
-            </div>
-          </div>
-          <div class="product-info">
-            <div class="product-name">
-              <h2>Mas que ciudad</h2>
-            </div>
-            <div class="artist-name">
-              <h3>Marí</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-3">
-        <div class="product-box">
-          <div class="product-inner-box position-relative obras-zoom">
-            <div class="icons position-absolute">
-              <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
-            </div>
-            <div class="featured"> <!--obra destacada-->
-              <span class="badge rounded-0"><i class="fa-regular fa-star"></i>destacada</span>
-            </div>
-            <a href="/album">
-              <img src="{% static 'app/img/productos/pinturas/p-edif-1.jpg' %}" alt="Pintura" class="img-fluid">
-            </a>
-            <div class="cart-btn"> <!--boton carrito-->
-              <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
-                carro</button>
-            </div>
-          </div>
-          <div class="product-info">
-            <div class="product-name">
-              <h2>Album</h2>
-            </div>
-            <div class="artist-name">
-              <h3>Jose</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-3">
-        <div class="product-box">
-          <div class="product-inner-box position-relative obras-zoom">
-            <div class="icons position-absolute">
-              <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
-            </div>
-            <div class="featured"> <!--obra destacada-->
-              <span class="badge rounded-0"><i class="fa-regular fa-star"></i>destacada</span>
-            </div>
-            <a href="./obras/pinturas html/p-fig-1.html">
-              <img src="{% static 'app/img/productos/pinturas/p-fig-1.jpg' %}" alt="Pintura" class="img-fluid">
-            </a>
-            <div class="cart-btn"> <!--boton carrito-->
-              <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
-                carro</button>
-            </div>
-          </div>
-          <div class="product-info">
-            <div class="product-name">
-              <h2>Intrusivo</h2>
-            </div>
-            <div class="artist-name">
-              <h3>Génesis</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-3">
-        <div class="product-box">
-          <div class="product-inner-box position-relative obras-zoom">
-            <div class="icons position-absolute">
-              <a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-heart"></i></a>
-            </div>
-            <a href="./obras/pinturas html/p-gold-1.html">
-              <img src="{% static 'app/img/productos/pinturas/p-gold-1.jpg' %}" alt="Pintura" class="img-fluid">
-            </a>
-            <div class="cart-btn"> <!--boton carrito-->
-              <button class="btn btn-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i>Agregar al
-                carro</button>
-            </div>
-          </div>
-          <div class="product-info">
-            <div class="product-name">
-              <h2>Tu mama</h2>
-            </div>
-            <div class="artist-name">
-              <h3>Marí</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- footer -->
-  <footer class="seccion-oscura d-flex flex-column align-items-center justify-content-center">
-    <img class="footer-logo" src="{% static 'app/img/logo/logo.png' %}" alt="logo de la cooperativa">
-    <p class="footer-texto">Cooperativa Artística Ground Zero
-    <div class="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
-      <a href="https://twitter.com/?lang=es" target="_blank" rel="noopener noreferrer">
-        <i class="bi bi-twitter"></i>
-      </a>
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-        <i class="bi bi-instagram"></i>
-      </a>
-      <a href="mailto: groundzero@micorreo.com" target="_blank" rel="noopener noreferrer">
-        <i class="bi bi-envelope"></i>
-      </a>
-      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-        <i class="bi bi-linkedin"></i>
-      </a>
-    </div>
-    <div class="derechos-autor">Creado por Nicolás Oses, Sebastián Arriagada (2023) &#169;</div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
-    integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
-    crossorigin="anonymous"></script>
+{% endblock %}
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.contrib import messages
-from django.core.files.storage import FileSystemStorage
+from .forms import CategoriaForm
 
 # Create your views here.
 
@@ -32,19 +32,32 @@ def checkout(request):
 # views de las categorias
 
 def  pinturas(request):
-    context = {}
-    return render(request, 'app/plantillas/categorias/pinturas.html')
+    pinturas = Obra.objects.raw('SELECT * FROM aplicacion_obra WHERE categoria_id = 1')
+    data = {
+        'pinturas': pinturas
+    }
+    return render(request, 'app/plantillas/categorias/pinturas.html', data)
 
 def escultura(request):
-    context = {}
-    return render(request, 'app/plantillas/categorias/escultura.html')
+    escultura = Obra.objects.raw('SELECT * FROM aplicacion_obra WHERE categoria_id = 4')
+    data = {
+        'escultura': escultura
+    }
+    return render(request, 'app/plantillas/categorias/escultura.html', data)
 
 def orfebreria(request):
-    context = {}
-    return render(request, 'app/plantillas/categorias/orfebreria.html')
+    orfebreria = Obra.objects.raw('SELECT * FROM aplicacion_obra WHERE categoria_id = 2')
+    data = {
+        'orfebreria': orfebreria
+    }
+    return render(request, 'app/plantillas/categorias/orfebreria.html', data)
 
 def tejidos(request):
-    return render(request, 'app/plantillas/categorias/tejidos.html')
+    tejidos = Obra.objects.raw('SELECT * FROM aplicacion_obra WHERE categoria_id = 3')
+    data = {
+        'tejidos': tejidos
+    }
+    return render(request, 'app/plantillas/categorias/tejidos.html', data)
 
 
 # views de los artistas
@@ -103,7 +116,7 @@ def laguna_mental(request):
 def dragon_fly(request):
     return render(request, 'app/plantillas/obras/orfebreria/dragon_fly.html')
 
-#crud obras
+# crud obras con formulario normal
 
 def agregar_obras(request):
     categorias = Categoria.objects.all()
@@ -219,3 +232,51 @@ def eliminar_obras(request, id):
         }
 
         return render(request, 'app/plantillas/crud_obras/listar.html', data)
+    
+
+# crud categorias con django forms 
+
+
+def listar_categorias(request):
+    categorias = Categoria.objects.all()
+    data = {
+        'categorias':categorias
+    }
+    return render(request, 'app/plantillas/crud_django_form/listar.html', data)
+
+def modificar_categorias(request, id):
+    categoria = get_object_or_404(Categoria, id=id)
+    data = {
+        'form' : CategoriaForm(instance=categoria)
+    }
+    if request.method == 'POST':
+        formulario = CategoriaForm(data=request.POST, instance=categoria)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, 'Categoría Modificada Correctamente')
+            return redirect(to='listar_categorias')
+        else:
+            data['form'] = formulario
+    return render(request, 'app/plantillas/crud_django_form/modificar.html', data)
+
+def agregar_categorias(request):
+    form = CategoriaForm()
+    data = {
+        'form': form,
+    }
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = CategoriaForm()
+            messages.success(request, 'Categoría Agregada Correctamente')
+            return redirect(to='listar_categorias')
+        else:
+            data['form'] = form
+    return render(request, 'app/plantillas/crud_django_form/agregar.html', data)
+
+def eliminar_categorias(request, id):
+    categoria = get_object_or_404(Categoria, id=id)
+    categoria.delete()
+    messages.success(request, 'Categoría Eliminada Correctamente')
+    return redirect(to='listar_categorias')
