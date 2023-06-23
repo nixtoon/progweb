@@ -27,8 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_REDIRECT_URL="/"
-LOGOUT_REDIRECT_URL="/"
 
 # Application definition
 
@@ -71,6 +69,8 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_REDIRECT_URL="/"
+LOGOUT_REDIRECT_URL="/"
 WSGI_APPLICATION = 'proyecto.wsgi.application'
 
 
