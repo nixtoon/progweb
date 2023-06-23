@@ -64,8 +64,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">CERRAR SESIÓN</a>
                     </li>
-                    <li>
-                        <a href="#">Usuario: {{ usuario }}</a>
+                    <li class="nav-item">
+                        <a href="#">Usuario: {{ user.username }}</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
