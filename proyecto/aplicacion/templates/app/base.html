@@ -21,8 +21,9 @@
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="{% static 'app/img/logo/logo.png' %}">
     <!-- javascript -->
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeo0p7f-l-NB0xY_nq3b1yT92j0BoBme8&callback=initMap">
-    </script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeo0p7f-l-NB0xY_nq3b1yT92j0BoBme8&callback=initMap">
+        </script>
     <script src="{% static 'app/js/api.js' %}"></script>
     <!-- titulo de la pagina -->
     {% block title %} {% endblock %}
@@ -59,6 +60,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'listar_categorias' %}">CATEGORIAS</a>
                     </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">CERRAR SESIÓN</a>
+                    </li>
+                    <li>
+                        <a href="#">{{ user.username}}</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">INICIAR SESIÓN</a>
+                    </li>
+                    {% endif %}
                 </ul>
                 <div class="d-flex flex-row justify-content-center align-items-center">
                     <div class="iniciar-sesion mr-5">
@@ -82,7 +95,7 @@
                             <button type="button">
                                 Carro
                                 <i class="bi bi-bag"></i>
-                          </button>
+                            </button>
                         </a>
                     </div>
                 </div>
@@ -91,7 +104,7 @@
     </nav>
 
     <div id="contenido">
-        
+
         {% block contenido %}
 
         {% endblock %}
@@ -119,19 +132,19 @@
         <div class="derechos-autor">Creado por Nicolás Oses, Sebastián Arriagada (2023) &#169;</div>
     </footer>
 
-        <!-- sweet alert -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        {% if messages %}
-        {% for m in messages %}
-        <script>
-            Swal.fire({
-                "title": "Felicitaciones",
-                "text": "{{m}}",
-                "icon": "success",
-            })
-        </script>
-        {% endfor %}
-        {% endif %}
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages %}
+    {% for m in messages %}
+    <script>
+        Swal.fire({
+            "title": "Felicitaciones",
+            "text": "{{m}}",
+            "icon": "success",
+        })
+    </script>
+    {% endfor %}
+    {% endif %}
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
