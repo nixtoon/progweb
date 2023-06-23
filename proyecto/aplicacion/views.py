@@ -18,9 +18,9 @@ def contacto(request):
     context = {}
     return render(request, 'app/plantillas/contacto.html')
 
-def iniciar(request):
+def login(request):
     context = {}
-    return render(request, 'app/plantillas/iniciar.html')
+    return render(request, 'app/plantillas/login.html')
 
 def iniciar_artista(request):
     context = {}
