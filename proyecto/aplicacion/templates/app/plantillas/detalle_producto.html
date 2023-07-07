@@ -37,8 +37,10 @@
         <h3>${{ obra.precio | intcomma }}</h3>
         <input type="number" value="1">
         <button class="btn btn-white shadow-sm rounded-pill">
+          <a href="{% url 'agregar_carrito' obra.id %}" style="text-decoration: none; color: black;">
+            Agregar al carro
+          </a>
           <i class="fa-solid fa-cart-plus"></i>
-          Agregar al carro
         </button>
         <h4 class="mt-5 mb-5">Detalle</h4>
         <span>{{ obra.descripcion }}</span>

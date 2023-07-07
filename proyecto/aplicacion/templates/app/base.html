@@ -20,12 +20,7 @@
     <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="{% static 'app/img/logo/logo.png' %}">
-    <!-- javascript -->
-    <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeo0p7f-l-NB0xY_nq3b1yT92j0BoBme8&callback=initMap">
-        </script>
-    <script src="{% static 'app/js/api.js' %}"></script>
-    <!-- titulo de la pagina -->
+    <!-- titulo -->
     {% block title %} {% endblock %}
 </head>
 
@@ -63,8 +58,12 @@
                             {{ user.username }}
                         </a>
                         <ul class="dropdown-menu">
+                            {% if perms.aplicacion.view_obra %}
                             <li><a class="dropdown-item" href="{% url 'listar_obras' %}">Obras</a></li>
+                            {% endif %}
+                            {% if perms.aplicacion.view_categoria %}
                             <li><a class="dropdown-item" href="{% url 'listar_categorias' %}">Categorías</a></li>
+                            {% endif %}
                             <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesión</a></li>
                         </ul>
                     </li>
@@ -72,8 +71,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">INICIAR SESION</a>
                     </li>
-                    {% endif %}
-
                     <li class="nav-item">
                         <div class="registrarse">
                             <a class="nav-link" href="{% url 'registrarse' %}">
@@ -84,6 +81,8 @@
                             </a>
                         </div>
                     </li>
+                    {% endif %}
+
                     <li class="nav-item">
                         <div class="registrarse">
                             <a class="nav-link" href="{% url 'checkout' %}">

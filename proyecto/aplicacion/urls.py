@@ -26,4 +26,11 @@ urlpatterns = [
     path('modificar-categorias/<id>/', views.modificar_categorias, name='modificar_categorias'),
     path('agregar-categorias/', views.agregar_categorias, name='agregar_categorias'),
     path('eliminar_categorias/<int:id>/', views.eliminar_categorias, name='eliminar_categorias'),
+
+    path('agregar-carrito/<int:id>/', views.agregar_carrito, name='agregar_carrito'),
+    path('eliminar-carrito/<int:id>/', views.eliminar_carrito, name='eliminar_carrito'),
+    path('restar-carrito/<int:id>/', views.restar_carrito, name='restar_carrito'),
+    path('limpiar-carrito/', views.limpiar_carrito, name='limpiar_carrito'),
+
+    path('feriados/', views.feriados, name='feriados'),
 ]

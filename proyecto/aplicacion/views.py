@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.contrib import messages
 from .forms import CategoriaForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import permission_required
+from aplicacion.Carrito import Carrito
 
 # Create your views here.
 
@@ -112,7 +113,7 @@ def detalle_producto(request, id):
 
 # crud obras con formulario normal
 
-@login_required
+@permission_required('aplicacion.add_obra')
 def agregar_obras(request):
     categorias = Categoria.objects.all()
     artistas   = Artista.objects.all()
@@ -155,7 +156,7 @@ def agregar_obras(request):
 
     return render(request, 'app/plantillas/crud_obras/agregar.html', data)
 
-@login_required
+@permission_required('aplicacion.view_obra')
 def listar_obras(request):
     obras = Obra.objects.all()
 
@@ -165,7 +166,7 @@ def listar_obras(request):
 
     return render(request, 'app/plantillas/crud_obras/listar.html', data)
 
-@login_required
+@permission_required('aplicacion.change_obra')
 def modificar_obras(request, id):
     obra       = get_object_or_404(Obra, id= id)
     categorias = Categoria.objects.all()
@@ -204,7 +205,7 @@ def modificar_obras(request, id):
     }
     return render(request, 'app/plantillas/crud_obras/modificar.html', data)
 
-@login_required
+@permission_required('aplicacion.delete_obra')
 def eliminar_obras(request, id):
 
     try:
@@ -233,7 +234,7 @@ def eliminar_obras(request, id):
 
 # crud categorias con django forms 
 
-@login_required
+@permission_required('aplicacion.view_categoria')
 def listar_categorias(request):
     categorias = Categoria.objects.all()
     data = {
@@ -241,7 +242,7 @@ def listar_categorias(request):
     }
     return render(request, 'app/plantillas/crud_django_form/listar.html', data)
 
-@login_required
+@permission_required('aplicacion.change_categoria')
 def modificar_categorias(request, id):
     categoria = get_object_or_404(Categoria, id=id)
     data = {
@@ -257,7 +258,7 @@ def modificar_categorias(request, id):
             data['form'] = formulario
     return render(request, 'app/plantillas/crud_django_form/modificar.html', data)
 
-@login_required
+@permission_required('aplicacion.add_categoria')
 def agregar_categorias(request):
     form = CategoriaForm()
     data = {
@@ -274,9 +275,39 @@ def agregar_categorias(request):
             data['form'] = form
     return render(request, 'app/plantillas/crud_django_form/agregar.html', data)
 
-@login_required
+@permission_required('aplicacion.delete_categoria')
 def eliminar_categorias(request, id):
     categoria = get_object_or_404(Categoria, id=id)
     categoria.delete()
     messages.success(request, 'Categoría Eliminada Correctamente')
     return redirect(to='listar_categorias')
+
+
+# crud carrito de compras
+
+
+def agregar_carrito(request, id):
+    carrito = Carrito(request)
+    obra = get_object_or_404(Obra, id=id)
+    carrito.agregar(obra)
+    return render(request, 'app/plantillas/checkout.html')
+
+def eliminar_carrito(request, id):
+    carrito = Carrito(request)
+    obra = get_object_or_404(Obra, id=id)
+    carrito.eliminar(obra)
+    return render(request, 'app/plantillas/checkout.html')
+
+def restar_carrito(request, id):
+    carrito = Carrito(request)
+    obra = get_object_or_404(Obra, id=id)
+    carrito.restar(obra)
+    return render(request, 'app/plantillas/checkout.html')
+
+def limpiar_carrito(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return render(request, 'app/plantillas/checkout.html')
+
+def feriados(request):
+    return render(request, 'app/plantillas/feriados.html')

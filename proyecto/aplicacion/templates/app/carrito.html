@@ -1,0 +1,41 @@
+{% load humanize %}
+
+<h4 class="d-flex justify-content-between align-items-center mb-3">
+  <span class="text-primary">Tu Carro</span>
+  <span class="badge bg-primary rounded-pill">{{ cantidad_total }}</span>
+</h4>
+
+
+<ul class="list-group mb-3">
+
+  {% if request.session.carrito.items %}
+  {% for key, value in request.session.carrito.items %}
+  <li class="list-group-item d-flex justify-content-between lh-sm">
+    <div>
+      <h6 class="my-0">{{ value.titulo }}</h6>
+      <small class="text-body-secondary">{{ value.categoria }}</small>
+    </div>
+    <span class="text-body-secondary">${{ value.acumulado | intcomma }}</span>
+    <span class="text-body-secondary">{{ value.cantidad }}
+      <a href="{% url 'agregar_carrito' value.obra_id %}" class="badge btn btn-dark badge-dark">+</a>
+      <a href="{% url 'restar_carrito' value.obra_id %}" class="badge btn btn-dark badge-dark">-</a>
+    </span>
+  </li>
+  {% endfor %}
+  {% else %}
+  <div class="alert alert-danger text-center">
+    Sin Productos
+  </div>
+  {% endif %}
+  <li class="list-group-item d-flex justify-content-between">
+    <span>Total</span>
+    <strong>${{ total_carrito | intcomma }}</strong>
+  </li>
+
+
+</ul>
+<hr>
+<div class="row text-center">
+  <div class="col-6"><a href="{% url 'limpiar_carrito' %}" class="btn btn-danger">Limpiar</a></div>
+  <div class="col-6"><a href="" class="btn btn-success">Guardar</a></div>
+</div>
